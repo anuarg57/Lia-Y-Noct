@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://game_over_scene"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_game_over_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_button"]
+font_size = 32
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game_over_script")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="TitleLabel" type="Label" parent="Container"]
+layout_mode = 2
+text = "HAS MUERTO"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Reiniciar (R)"
+unique_name_in_owner = true
+
+[node name="MainMenuButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Menú Principal (M)"
+unique_name_in_owner = true

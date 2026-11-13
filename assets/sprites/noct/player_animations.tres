@@ -1,0 +1,65 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://player_animations"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/AnimacionReposo.png" id="1_idle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/AnimacionAgacharse.png" id="2_crouch"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/CaminarDerecha.png" id="3_walk_right"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/CaminarIzquierda.png" id="4_walk_left"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/salto.png" id="5_jump"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/SaltarDerecha.png" id="6_jump_right"]
+[ext_resource type="Texture2D" path="res://assets/sprites/noct/SaltarIzquierda.png" id="7_jump_left"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle"]
+atlas = ExtResource("1_idle")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crouch"]
+atlas = ExtResource("2_crouch")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk_right"]
+atlas = ExtResource("3_walk_right")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk_left"]
+atlas = ExtResource("4_walk_left")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump"]
+atlas = ExtResource("5_jump")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump_right"]
+atlas = ExtResource("6_jump_right")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump_left"]
+atlas = ExtResource("7_jump_left")
+region = Rect2(0, 0, 64, 64)
+
+animations/idle/frames = [SubResource("AtlasTexture_idle"), SubResource("AtlasTexture_idle"), SubResource("AtlasTexture_idle"), SubResource("AtlasTexture_idle")]
+animations/idle/loop = true
+animations/idle/speed = 6.0
+
+animations/crouch/frames = [SubResource("AtlasTexture_crouch"), SubResource("AtlasTexture_crouch"), SubResource("AtlasTexture_crouch"), SubResource("AtlasTexture_crouch")]
+animations/crouch/loop = true
+animations/crouch/speed = 6.0
+
+animations/walk_right/frames = [SubResource("AtlasTexture_walk_right"), SubResource("AtlasTexture_walk_right"), SubResource("AtlasTexture_walk_right"), SubResource("AtlasTexture_walk_right"), SubResource("AtlasTexture_walk_right"), SubResource("AtlasTexture_walk_right")]
+animations/walk_right/loop = true
+animations/walk_right/speed = 8.0
+
+animations/walk_left/frames = [SubResource("AtlasTexture_walk_left"), SubResource("AtlasTexture_walk_left"), SubResource("AtlasTexture_walk_left"), SubResource("AtlasTexture_walk_left"), SubResource("AtlasTexture_walk_left"), SubResource("AtlasTexture_walk_left")]
+animations/walk_left/loop = true
+animations/walk_left/speed = 8.0
+
+animations/jump/frames = [SubResource("AtlasTexture_jump")]
+animations/jump/loop = false
+animations/jump/speed = 1.0
+
+animations/jump_right/frames = [SubResource("AtlasTexture_jump_right")]
+animations/jump_right/loop = false
+animations/jump_right/speed = 1.0
+
+animations/jump_left/frames = [SubResource("AtlasTexture_jump_left")]
+animations/jump_left/loop = false
+animations/jump_left/speed = 1.0

@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://cave_level_stage1_v3"]
+
+[ext_resource type="PackedScene" uid="uid://bwj8qk4r2y3hn" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://enemy_scene" path="res://scenes/enemy.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" uid="uid://enemy_chaser_scene" path="res://scenes/enemy_chaser.tscn" id="4_chaser"]
+[ext_resource type="PackedScene" uid="uid://spider_scene" path="res://scenes/enemies/arana.tscn" id="5_spider"]
+[ext_resource type="PackedScene" uid="uid://centipede_scene" path="res://scenes/enemies/ciempies.tscn" id="6_centipede"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(4000, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(128, 32)
+
+[node name="CaveLevelStage1" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.02, 0.05, 1)
+
+# Long floor
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(2000, 700)
+collision_layer = 2
+collision_mask = 3
+
+[node name="GroundShape" type="CollisionShape2D" parent="."]
+position = Vector2(2000, 700)
+shape = SubResource("RectangleShape2D_ground")
+
+# Parkour platforms
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(400, 450)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Platform1Shape" type="CollisionShape2D" parent="."]
+position = Vector2(400, 450)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(800, 350)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Platform2Shape" type="CollisionShape2D" parent="."]
+position = Vector2(800, 350)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(1200, 450)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Platform3Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1200, 450)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(1600, 350)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Platform4Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1600, 350)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2(2000, 450)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Platform5Shape" type="CollisionShape2D" parent="."]
+position = Vector2(2000, 450)
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform5"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.25, 0.25, 0.45, 1)
+
+# Player spawn
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(200, 600)
+z_index = 100
+
+# Enemies on ground
+[node name="Bug1" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(600, 636)
+
+[node name="Bug2" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(1200, 636)
+
+[node name="Bug3" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(1800, 636)
+
+[node name="Chaser1" parent="." instance=ExtResource("4_chaser")]
+position = Vector2(900, 636)
+
+[node name="Chaser2" parent="." instance=ExtResource("4_chaser")]
+position = Vector2(1500, 636)
+
+# Spiders on platforms
+[node name="Spider1" parent="." instance=ExtResource("5_spider")]
+position = Vector2(400, 386)
+
+[node name="Spider2" parent="." instance=ExtResource("5_spider")]
+position = Vector2(800, 286)
+
+[node name="Spider3" parent="." instance=ExtResource("5_spider")]
+position = Vector2(1200, 386)
+
+[node name="Spider4" parent="." instance=ExtResource("5_spider")]
+position = Vector2(1600, 286)
+
+[node name="Spider5" parent="." instance=ExtResource("5_spider")]
+position = Vector2(2000, 386)
+
+# Centipedes on platforms
+[node name="Centipede1" parent="." instance=ExtResource("6_centipede")]
+position = Vector2(1000, 100)
+
+[node name="Centipede2" parent="." instance=ExtResource("6_centipede")]
+position = Vector2(1500, 100)

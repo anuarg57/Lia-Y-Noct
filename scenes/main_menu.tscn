@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cagprldwy8r7j"]
+
+[ext_resource type="Script" uid="uid://co10034o4jubu" path="res://scripts/main_menu.gd" id="1_main_menu_script"]
+[ext_resource type="Script" uid="uid://dpevfod2xa18i" path="res://scripts/star_background.gd" id="2_star_bg_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 64
+
+[node name="MainMenu" type="Control" unique_id=651838133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main_menu_script")
+
+[node name="StarBackground" type="Node2D" parent="." unique_id=1284291068]
+z_index = -1
+script = ExtResource("2_star_bg_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=408084209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.15, 1)
+
+[node name="TitleContainer" type="VBoxContainer" parent="." unique_id=280966547]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="TitleContainer" unique_id=213464862]
+layout_mode = 2
+text = "Lia y Noct"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=869091757]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameButton" type="Button" parent="MenuContainer" unique_id=606074855]
+layout_mode = 2
+text = "Nueva Partida"
+
+[node name="LoadGameButton" type="Button" parent="MenuContainer" unique_id=466183634]
+layout_mode = 2
+text = "Cargar Partida"
+
+[node name="OptionsButton" type="Button" parent="MenuContainer" unique_id=1845076835]
+layout_mode = 2
+text = "Opciones"
+
+[node name="ExitButton" type="Button" parent="MenuContainer" unique_id=815568198]
+layout_mode = 2
+text = "Salir"

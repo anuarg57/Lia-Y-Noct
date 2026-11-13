@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://spider_scene"]
+
+[ext_resource type="Script" path="res://scripts/arana.gd" id="1_arana_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arana"]
+size = Vector2(64, 64)
+
+[node name="Spider" type="CharacterBody2D"]
+script = ExtResource("1_arana_script")
+groups = ["enemies"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="EnemyVisual" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_arana")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_arana")
+
+[node name="LedgeDetector" type="RayCast2D" parent="."]
+position = Vector2(20, 10)
+target_position = Vector2(20, 30)
+collision_mask = 2
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+
+[node name="PlayerDetectorShape" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_arana")

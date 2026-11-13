@@ -1,0 +1,199 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp8faf0g1h2i3"]
+
+[ext_resource type="PackedScene" uid="uid://bwj8qk4r2y3hn" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://enemy_scene" path="res://scenes/enemy.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" uid="uid://enemy_chaser_scene" path="res://scenes/enemy_chaser.tscn" id="4_chaser"]
+[ext_resource type="PackedScene" uid="uid://spider_scene" path="res://scenes/enemies/arana.tscn" id="5_spider"]
+[ext_resource type="PackedScene" uid="uid://centipede_scene" path="res://scenes/enemies/ciempies.tscn" id="6_centipede"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(3840, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(128, 32)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1920, 700)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -1920.0
+offset_top = -32.0
+offset_right = 1920.0
+offset_bottom = 32.0
+color = Color(0.1, 0.1, 0.2, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(400, 550)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform1"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(900, 450)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(600, 350)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform3"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(1400, 550)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform4"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2(2000, 450)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform5"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+position = Vector2(2600, 350)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform6"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Platform7" type="StaticBody2D" parent="."]
+position = Vector2(3100, 550)
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="ColorRect" type="ColorRect" parent="Platform7"]
+offset_left = -64.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 16.0
+color = Color(0.2, 0.2, 0.4, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(1920, 400)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -100)
+limit_left = 0
+limit_right = 3840
+limit_top = 0
+limit_bottom = 720
+
+[node name="Enemy" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(900, 390)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(1400, 490)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(2000, 390)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(2600, 290)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_enemy")]
+position = Vector2(3100, 490)
+
+[node name="Chaser1" parent="." instance=ExtResource("4_chaser")]
+position = Vector2(600, 600)
+
+[node name="Chaser2" parent="." instance=ExtResource("4_chaser")]
+position = Vector2(1800, 600)
+
+[node name="Chaser3" parent="." instance=ExtResource("4_chaser")]
+position = Vector2(2900, 600)
+
+[node name="Spider1" parent="." instance=ExtResource("5_spider")]
+position = Vector2(1200, 500)
+
+[node name="Spider2" parent="." instance=ExtResource("5_spider")]
+position = Vector2(2200, 400)
+
+[node name="Spider3" parent="." instance=ExtResource("5_spider")]
+position = Vector2(800, 450)
+
+[node name="Spider4" parent="." instance=ExtResource("5_spider")]
+position = Vector2(1800, 500)
+
+[node name="Centipede1" parent="." instance=ExtResource("6_centipede")]
+position = Vector2(1600, 200)
+
+[node name="Centipede2" parent="." instance=ExtResource("6_centipede")]
+position = Vector2(2800, 200)
+
+[node name="Centipede3" parent="." instance=ExtResource("6_centipede")]
+position = Vector2(1000, 200)

@@ -1,0 +1,13 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://noct_idle_anim"]
+
+[ext_resource type="Texture2D" uid="uid://noct_idle_texture" path="res://assets/sprites/noct/noct_idle.png" id="1_texture"]
+
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_texture")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
